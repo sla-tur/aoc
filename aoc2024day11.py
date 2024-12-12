@@ -7,8 +7,9 @@ def blink(elem, count, n, memo):
   if elem in memo.keys():
     return blink(memo[elem], count+1, memo)
   elif len(str(elem)) % 2 == 0:
-    middle_element = str(elem)[len(str(elem))//2]
-    memo[elem] = blink(int(middle_element),)
-    return blink(int(middle_element),count, n, memo)
+    mid = len(str(elem))//2
+    left = int(str(elem)[:mid])
+    right = int(str(elem)[mid:])
+    memo[elem] = blink(left, count, n, memo), blink(right, count, n, memo)
     
   
